@@ -1,14 +1,18 @@
 package com.auxenta;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-    	UserInput userInput = new UserInput();
-    	userInput.handlingUserInputs();
-    	}
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class App {
+	
+	private static Logger logger = LogManager.getLogger(App.class);
+	
+	public static void main(String[] args) {
+		try {
+			UserInput.handlingInputs(args);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		
+	}
 }
